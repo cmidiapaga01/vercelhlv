@@ -1,7 +1,9 @@
-import React from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { Box, SimpleGrid, Image, Heading, Text, Button, VStack } from '@chakra-ui/react';
 import Image1 from '../assets/images/img_01.jpg';
 import Image2 from '../assets/images/img_02.jpg';
+import LoadingSpinner from '../components/LoadingSpinner'; 
 
 const tours = [
   {
@@ -19,7 +21,21 @@ const tours = [
   // Adicione mais tours conforme necessário
 ];
 
+
 function ToursPage() {
+  const [isLoading, setIsLoading] = useState(true); // Estado para controlar o carregamento
+
+  useEffect(() => {
+    // Simula o carregamento dos dados dos tours
+    setTimeout(() => {
+      setIsLoading(false); // Encerra o carregamento
+    }, 2000); // Ajuste o tempo conforme necessário
+  }, []);
+
+  if (isLoading) {
+    return <LoadingSpinner />; // Exibe o spinner durante o carregamento
+  }
+
   return (
     <Box p={5}>
       <Heading mb={6}>Explore Nossos Tours</Heading>

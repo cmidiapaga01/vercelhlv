@@ -11,7 +11,7 @@ function Navbar() {
   return (
     <Box bg={colorMode === 'light' ? 'gray.100' : 'gray.900'} px={4}>
       <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-        <Heading as="h1" size="lg">Hotel Foda</Heading>
+        <Heading as="h1" size="lg">Hostel HLV</Heading>
 
         <Flex alignItems={'center'}>
           {/* Menu para dispositivos móveis */}

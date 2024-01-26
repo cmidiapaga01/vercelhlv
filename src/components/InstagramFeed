@@ -1,0 +1,31 @@
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+
+// function InstagramFeed() {
+//   const [posts, setPosts] = useState([]);
+//   const accessToken = 'SEU_ACCESS_TOKEN'; // Substitua pelo seu token de acesso
+//   const userId = 'SEU_USER_ID'; // Substitua pelo ID do usuário do Instagram
+
+//   useEffect(() => {
+//     axios.get(`https://graph.instagram.com/${userId}/media?fields=id,caption,media_type,media_url,permalink&access_token=${accessToken}`)
+//       .then(response => {
+//         setPosts(response.data.data);
+//       })
+//       .catch(error => {
+//         console.error('Erro ao buscar dados do Instagram:', error);
+//       });
+//   }, []);
+
+//   return (
+//     <div>
+//       {posts.map(post => (
+//         <div key={post.id}>
+//           <img src={post.media_url} alt={post.caption} />
+//           <p>{post.caption}</p>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default InstagramFeed;

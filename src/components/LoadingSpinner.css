@@ -1,0 +1,50 @@
+/* LoadingSpinner.css */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.orbit-spinner {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  animation: orbit-spin 4s linear infinite;
+}
+
+.planet-spinner {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: 5px solid rgba(0, 0, 0, 0.1);
+  border-top: 5px solid blue;
+  border-bottom: 5px solid blue;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at 30% 30%, yellow, transparent),
+              radial-gradient(circle at 70% 70%, red, transparent);
+  animation: planet-spin 2s linear infinite;
+}
+
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(white, transparent),
+              radial-gradient(white, transparent),
+              radial-gradient(white, transparent);
+  background-position: 20% 30%, 60% 70%, 90% 40%;
+  background-repeat: no-repeat;
+}
+
+@keyframes planet-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes orbit-spin {
+  0% { transform: rotateZ(0deg); }
+  100% { transform: rotateZ(360deg); }
+}
