@@ -38,7 +38,7 @@ function HomePage() {
             <Slider {...settings}>
                 {/* Slides */}
                 <Box h="60vh" bgImage={`url(${Image3})`} bgSize="cover" bgPosition="center">
-                    <Heading color="white" mb={3}>Descubra o Luxo</Heading>
+                    <Heading color="white" mb={3}>Deeescubra o Luxo</Heading>
                 </Box>
                 <Box h="60vh" bgImage={`url(${Image4})`} bgSize="cover" bgPosition="center">
                     <Heading color="white" mb={3}>Relaxe na Natureza</Heading>
