@@ -11,7 +11,7 @@ function ScrollAnimation2() {
         scaleX: scrollYProgress
       }}
     >
-      {ServicesHighlights}
+      <ServicesHighlights />
     </motion.div>
   );
 }
