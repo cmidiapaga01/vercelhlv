@@ -44,8 +44,14 @@ function HeroSection() {
       justifyContent="center"
     >
       {/* Container for content */}
-      <Flex textAlign="center" direction="column" position="relative" 
-      width="100%" maxWidth={{ base: "75%", md: "75%", lg: "70%", xl: "60%" }}>
+      <Flex
+        justifyContent="center"
+        textAlign="center"
+        direction="column"
+        position="relative"
+        width="100%"
+        maxWidth={{ base: "75%", md: "75%", lg: "70%", xl: "60%" }}
+      >
         {/* Social media icons */}
         <Flex
           flexDirection="column"
@@ -78,17 +84,31 @@ function HeroSection() {
           />
         </Flex>
         {/* "Explore Now" button styled with Chakra UI */}
-        <ChakraButton size="lg" mb={4} {...buttonStyle} fontSize="lg">
-          Book Now
-        </ChakraButton>
+        <ChakraFlex justifyContent="center" width="100%">
+          {" "}
+          {/* Horizontally center the button */}
+          <ChakraButton
+            size="lg"
+            mb={4}
+            {...buttonStyle}
+            fontSize="lg"
+            width="11rem"
+          >
+            Book Now
+          </ChakraButton>
+        </ChakraFlex>
         {/* Logo */}
         <Box mb={4}>
           <Image src={logo} alt="Logo" w="17rem" h="auto" mx="auto" />
         </Box>
         {/* Three buttons in a row styled with Chakra UI */}
-        <ChakraFlex justifyContent="space-between" mb={4}>
-          <ChakraButton {...buttonStyle}>Button 1</ChakraButton>
-          <ChakraButton {...buttonStyle}>Button 2</ChakraButton>
+        <ChakraFlex justifyContent="center" mb={4}>
+          <ChakraButton mr={2} {...buttonStyle}>
+            Button 1
+          </ChakraButton>
+          <ChakraButton mr={2} {...buttonStyle}>
+            Button 2
+          </ChakraButton>
           <ChakraButton {...buttonStyle}>Button 3</ChakraButton>
         </ChakraFlex>
       </Flex>
