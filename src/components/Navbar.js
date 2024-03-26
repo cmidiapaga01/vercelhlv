@@ -1,16 +1,15 @@
 import React from 'react';
 import {
-  Box, Flex, Link, Stack, Heading, IconButton, useColorMode, Menu, MenuButton, MenuList, MenuItem
+  Box, Flex, Link, Heading, IconButton, useColorMode, Menu, MenuButton, MenuList, MenuItem
 } from '@chakra-ui/react';
-import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { Switch as ChakraSwitch } from '@chakra-ui/react'; // Renomeado para evitar conflitos
+import { HamburgerIcon } from '@chakra-ui/icons';
 
 function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
-    <Box bg={colorMode === 'light' ? 'gray.100' : 'gray.900'} px={4}>
-      <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+    <Box bg={colorMode === 'light' ? 'gray.100' : 'gray.900'} px={8}>
+      <Flex h={"4rem"} alignItems={'center'} justifyContent={'space-between'}> 
         <Heading as="h1" size="lg">Hostel HLV</Heading>
 
         <Flex alignItems={'center'}>
@@ -25,18 +24,15 @@ function Navbar() {
               {/* Adicione mais items de menu conforme necessário */}
             </MenuList>
           </Menu>
-
-          {/* Links normais para telas maiores */}
-          <Stack direction={'row'} spacing={7} display={{ base: 'none', md: 'flex' }}>
-            <Link href="/">Home</Link>
-            <Link href="/tours">Tours</Link>
-            <Link href="/about-us">About Us</Link>
+          
+          {/* Links para telas maiores */}
+          <Flex alignItems="center" display={{ base: 'none', md: 'flex' }}>
+            <Link href="/" marginRight={4}>Home</Link>
+            <Link href="/tours" marginRight={4}>Tours</Link>
+            <Link href="/about-us" marginRight={4}>About Us</Link>
             <Link href="/contact">Contact</Link>
             {/* Adicione mais links conforme necessário */}
-          </Stack>
-
-          {/* Switch para alternar temas */}
-          <ChakraSwitch isChecked={colorMode === 'dark'} onChange={toggleColorMode} ml={5} />
+          </Flex>
         </Flex>
       </Flex>
     </Box>

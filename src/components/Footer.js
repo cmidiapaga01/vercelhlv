@@ -4,12 +4,12 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 function Footer() {
   return (
-    <Box bg={useColorModeValue('gray.100', 'gray.800')} color={useColorModeValue('gray.600', 'gray.200')}>
+    <Box bg={useColorModeValue('gray.100', 'gray.800')} color={useColorModeValue('gray.600', 'gray.200')} h={"8rem"}>
       <VStack spacing={4} align="stretch" p={8}>
         <Text fontSize="lg" textAlign="center">
-          Hotel Foda - Conforto e Luxo em um só lugar
+          Hostel Hasta la Vista, baby!
         </Text>
-        <HStack justifyContent="center">
+        {/* <HStack justifyContent="center">
           <Link href="https://www.facebook.com/" isExternal>
             <IconButton aria-label="Facebook" icon={<FaFacebook />} />
           </Link>
@@ -22,9 +22,9 @@ function Footer() {
           <Link href="https://www.linkedin.com/" isExternal>
             <IconButton aria-label="LinkedIn" icon={<FaLinkedin />} />
           </Link>
-        </HStack>
+        </HStack> */}
         <Text fontSize="sm" textAlign="center">
-          © {new Date().getFullYear()} Hotel Foda. Todos os direitos reservados.
+          © {new Date().getFullYear()} Hostel Hasta la Vista. All rights reserved.
         </Text>
       </VStack>
     </Box>
