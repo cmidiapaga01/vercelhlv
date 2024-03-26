@@ -41,11 +41,12 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  background: radial-gradient(#f1c40f, transparent),
-              radial-gradient(#f1c40f, transparent),
-              radial-gradient(#f1c40f, transparent);
+  background: radial-gradient(rgb(29, 212, 41), transparent),
+              radial-gradient(rgb(14, 138, 12), transparent),
+              radial-gradient(white, transparent);
   background-position: 20% 30%, 60% 70%, 90% 40%;
   background-repeat: no-repeat;
+  animation: stars-rotate 8s linear infinite; /* Animação de rotação das estrelas */
 }
 
 /* Animação de rotação do planeta */
@@ -58,4 +59,10 @@
 @keyframes orbit-spin {
   0% { transform: rotateZ(0deg); }
   100% { transform: rotateZ(360deg); }
+}
+
+/* Animação de rotação das estrelas */
+@keyframes stars-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

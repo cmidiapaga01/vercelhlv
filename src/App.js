@@ -1,24 +1,26 @@
 import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Alterado para Routes
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import ToursPage from './pages/ToursPage';
-import AboutUsPage from './pages/AboutUsPage';
-import ContactPage from './pages/ContactPage';
+import TourDetailsPage from './pages/TourDetailsPage'; // Importando a nova página de detalhes
+import SimpleCookiePreference from './components/SimpleCookiePreference';
 import './assets/styles/main.css';
+import TagManager from 'react-gtm-module';
 
 function App() {
   return (
     <ChakraProvider>
       <Router>
         <Navbar />
-        <Routes> {/* Alterado para Routes */}
+        <Routes>
           <Route exact path="/" element={<HomePage />} />
-          <Route path="/tours" element={<ToursPage />} />
-          <Route path="/about-us" element={<AboutUsPage />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/tourspage" element={<ToursPage />} />
+          {/* Rota para a página de detalhes do tour */}
+          <Route path="/tour/:id" element={<TourDetailsPage />} />
         </Routes>
+        <SimpleCookiePreference />
       </Router>
     </ChakraProvider>
   );

@@ -18,9 +18,8 @@ function Navbar() {
             <MenuButton as={IconButton} icon={<HamburgerIcon />} display={{ md: 'none' }} />
             <MenuList>
               <MenuItem as={Link} href="/">Home</MenuItem>
-              <MenuItem as={Link} href="/tours">Tours</MenuItem>
-              <MenuItem as={Link} href="/about-us">About Us</MenuItem>
-              <MenuItem as={Link} href="/contact">Contact</MenuItem>
+              {/* <MenuItem as={Link} href="/about-us">About Us</MenuItem> */}
+              <MenuItem as={Link} href="/tourspage">Tours</MenuItem>
               {/* Adicione mais items de menu conforme necessário */}
             </MenuList>
           </Menu>
@@ -28,9 +27,9 @@ function Navbar() {
           {/* Links para telas maiores */}
           <Flex alignItems="center" display={{ base: 'none', md: 'flex' }}>
             <Link href="/" marginRight={4}>Home</Link>
-            <Link href="/tours" marginRight={4}>Tours</Link>
-            <Link href="/about-us" marginRight={4}>About Us</Link>
-            <Link href="/contact">Contact</Link>
+            <Link href="/tourspage" marginRight={4}>Tours</Link>
+            {/* <Link href="/about-us" marginRight={4}>About Us</Link>
+            <Link href="/contact">Contact</Link> */}
             {/* Adicione mais links conforme necessário */}
           </Flex>
         </Flex>
