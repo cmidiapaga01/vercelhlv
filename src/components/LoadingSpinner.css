@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: #141414; /* Cor de fundo escura */
 }
 
 /* Spinner de órbita */
@@ -13,40 +14,28 @@
   position: relative;
   width: 80px;
   height: 80px;
-  animation: orbit-spin 4s linear infinite;
-  border: 3px solid #3498db; /* Cor da borda da órbita */
-  border-top: 3px solid #e74c3c; /* Cor da borda do topo da órbita */
-  border-bottom: 3px solid #e74c3c; /* Cor da borda do fundo da órbita */
+  border: 3px solid #04d9ff; /* Cor da borda da órbita (azul claro) */
   border-radius: 50%;
+  animation: orbit-spin 2s linear infinite;
+}
+
+/* Animação de rotação da órbita */
+@keyframes orbit-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 /* Spinner do planeta */
 .planet-spinner {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  border: 3px solid rgba(0, 0, 0, 0.1);
-  border-top: 3px solid #f1c40f; /* Cor da borda do topo do planeta */
-  border-bottom: 3px solid #f1c40f; /* Cor da borda do fundo do planeta */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 3px solid #ff00a9; /* Cor da borda do planeta (rosa) */
   border-radius: 50%;
   width: 60px;
   height: 60px;
-  background: radial-gradient(circle at 30% 30%, #f1c40f, transparent),
-              radial-gradient(circle at 70% 70%, #e74c3c, transparent);
-  animation: planet-spin 2s linear infinite;
-}
-
-/* Estrelas de fundo */
-.stars {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(rgb(29, 212, 41), transparent),
-              radial-gradient(rgb(14, 138, 12), transparent),
-              radial-gradient(white, transparent);
-  background-position: 20% 30%, 60% 70%, 90% 40%;
-  background-repeat: no-repeat;
-  animation: stars-rotate 8s linear infinite; /* Animação de rotação das estrelas */
+  animation: planet-spin 4s linear infinite, planet-shine 2s linear infinite alternate; /* Adicionando animação de brilho */
 }
 
 /* Animação de rotação do planeta */
@@ -55,14 +44,8 @@
   100% { transform: rotate(360deg); }
 }
 
-/* Animação de rotação da órbita */
-@keyframes orbit-spin {
-  0% { transform: rotateZ(0deg); }
-  100% { transform: rotateZ(360deg); }
-}
-
-/* Animação de rotação das estrelas */
-@keyframes stars-rotate {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/* Animação de brilho do planeta */
+@keyframes planet-shine {
+  0% { border-color: #ff00a9; } /* Cor inicial do brilho (rosa) */
+  100% { border-color: #f8ff00; } /* Cor final do brilho (amarelo) */
 }

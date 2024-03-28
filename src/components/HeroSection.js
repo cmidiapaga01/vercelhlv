@@ -1,14 +1,8 @@
 import React from "react";
-import {
-  Box,
-  Flex,
-  Heading,
-  Button,
-  Image,
-  IconButton,
-} from "@chakra-ui/react";
+import { Box, Flex, Heading, Button, Image, IconButton } from "@chakra-ui/react";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import logo from "../assets/images/logo.png";
+import { useSpring, animated } from "react-spring";
 
 // Importing Chakra UI button style
 import { Button as ChakraButton, Flex as ChakraFlex } from "@chakra-ui/react";
@@ -35,6 +29,34 @@ function HeroSection() {
     _hover: { bg: "#314e89" }, // Set hover background color
   };
 
+  // Define animation for social media icons
+  const socialMediaAnimation = useSpring({
+    from: { opacity: 0, transform: "translateX(-50px)" },
+    to: { opacity: 1, transform: "translateX(0)" },
+    config: { duration: 1000 },
+  });
+
+  // Define animation for "Explore Now" button
+  const exploreButtonAnimation = useSpring({
+    from: { opacity: 0, transform: "translateY(50px)" },
+    to: { opacity: 1, transform: "translateY(0)" },
+    config: { duration: 1000 },
+  });
+
+  // Define animation for logo
+  const logoAnimation = useSpring({
+    from: { opacity: 0, transform: "scale(0.5)" },
+    to: { opacity: 1, transform: "scale(1)" },
+    config: { duration: 1000, delay: 500 },
+  });
+
+  // Define animation for three buttons in a row
+  const buttonsAnimation = useSpring({
+    from: { opacity: 0, transform: "translateY(50px)" },
+    to: { opacity: 1, transform: "translateY(0)" },
+    config: { duration: 1000, delay: 1000 },
+  });
+
   return (
     <Box
       minH="calc(100vh - 12rem)"
@@ -44,53 +66,66 @@ function HeroSection() {
       justifyContent="center"
     >
       {/* Container for content */}
-      <Flex textAlign="center" direction="column" position="relative" 
-      width="100%" maxWidth={{ base: "75%", md: "75%", lg: "70%", xl: "60%" }}>
+      <Flex
+        textAlign="center"
+        direction="column"
+        position="relative"
+        width="100%"
+        maxWidth={{ base: "75%", md: "75%", lg: "70%", xl: "60%" }}
+      >
         {/* Social media icons */}
-        <Flex
-          flexDirection="column"
-          justifyContent="space-between"
-          mb={{ base: 4, md: 0 }}
-          position="absolute"
-          left={-5}
-          top="43%"
-        >
-          <IconButton
-            aria-label="Facebook"
-            icon={<FaFacebook />}
-            {...iconStyle} // Apply common icon style
-            bg="#3b5998" // Set the background color using HEX
-            mb={2}
-          />
-          <IconButton
-            aria-label="Twitter"
-            icon={<FaTwitter />}
-            {...iconStyle} // Apply common icon style
-            bg="#00acee" // Set the background color using HEX
-            mb={2}
-          />
-          <IconButton
-            aria-label="Instagram"
-            icon={<FaInstagram />}
-            {...iconStyle} // Apply common icon style
-            bgGradient="linear(to-r, #405de6,#5851db,#833ab4,#c13584,#e1306c,#fd1d1d,#f56040,#f77737,#fcaf45,#ffdc80)" // Set background gradient using HEX colors
-            mb={2}
-          />
-        </Flex>
+        <animated.div style={socialMediaAnimation}>
+          <Flex
+            flexDirection="column"
+            justifyContent="space-between"
+            mb={{ base: 4, md: 0 }}
+            position="absolute"
+            left={-5}
+            top="43%"
+          >
+            <IconButton
+              aria-label="Facebook"
+              icon={<FaFacebook />}
+              {...iconStyle} // Apply common icon style
+              bg="#3b5998" // Set the background color using HEX
+              mb={2}
+            />
+            <IconButton
+              aria-label="Twitter"
+              icon={<FaTwitter />}
+              {...iconStyle} // Apply common icon style
+              bg="#00acee" // Set the background color using HEX
+              mb={2}
+            />
+            <IconButton
+              aria-label="Instagram"
+              icon={<FaInstagram />}
+              {...iconStyle} // Apply common icon style
+              bgGradient="linear(to-r, #405de6,#5851db,#833ab4,#c13584,#e1306c,#fd1d1d,#f56040,#f77737,#fcaf45,#ffdc80)" // Set background gradient using HEX colors
+              mb={2}
+            />
+          </Flex>
+        </animated.div>
         {/* "Explore Now" button styled with Chakra UI */}
-        <ChakraButton size="lg" mb={4} {...buttonStyle} fontSize="lg">
-          Book Now
-        </ChakraButton>
+        <animated.div style={exploreButtonAnimation}>
+          <ChakraButton size="lg" mb={4} {...buttonStyle} fontSize="lg">
+            Book Now
+          </ChakraButton>
+        </animated.div>
         {/* Logo */}
-        <Box mb={4}>
-          <Image src={logo} alt="Logo" w="17rem" h="auto" mx="auto" />
-        </Box>
+        <animated.div style={logoAnimation}>
+          <Box mb={4}>
+            <Image src={logo} alt="Logo" w="17rem" h="auto" mx="auto" />
+          </Box>
+        </animated.div>
         {/* Three buttons in a row styled with Chakra UI */}
-        <ChakraFlex justifyContent="space-between" mb={4}>
-          <ChakraButton {...buttonStyle}>Button 1</ChakraButton>
-          <ChakraButton {...buttonStyle}>Button 2</ChakraButton>
-          <ChakraButton {...buttonStyle}>Button 3</ChakraButton>
-        </ChakraFlex>
+        <animated.div style={buttonsAnimation}>
+          <ChakraFlex justifyContent="space-between" mb={4}>
+            <ChakraButton {...buttonStyle}>Button 1</ChakraButton>
+            <ChakraButton {...buttonStyle}>Button 2</ChakraButton>
+            <ChakraButton {...buttonStyle}>Button 3</ChakraButton>
+          </ChakraFlex>
+        </animated.div>
       </Flex>
     </Box>
   );

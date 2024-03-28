@@ -9,11 +9,24 @@ export default function SimpleCookiePreference() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
+    // Verifica se já existe consentimento armazenado
+    const consent = localStorage.getItem('googleAnalyticsConsent');
+    if (consent === 'true') {
+      setGoogleAnalyticsConsent(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Verifica se houve mudança no consentimento e armazena no localStorage
+    localStorage.setItem('googleAnalyticsConsent', googleAnalyticsConsent.toString());
+  }, [googleAnalyticsConsent]);
+
+  useEffect(() => {
     if (googleAnalyticsConsent) {
-      TagManager.initialize({ gtmId: 'GTM-W3B98G7C' }); // Inicializa o Google Tag Manager com seu ID de container
+      TagManager.initialize({ gtmId: 'GTM-W3B98G7C' });
       setTimeout(() => {
         setFadeOut(true);
-      }, 500); // Define um timeout para aplicar o efeito de fade out após 500ms (0.5 segundos)
+      }, 500);
     }
   }, [googleAnalyticsConsent]);
 
@@ -23,11 +36,9 @@ export default function SimpleCookiePreference() {
 
   const handleOkButtonClick = () => {
     if (!cookiePreferencesClicked) {
-      // Se o usuário clicou em OK sem abrir o Cookie Preferences
       setGoogleAnalyticsConsent(true);
-      setFadeOut(true); // Aplica o efeito de fade out
+      setFadeOut(true);
     } else {
-      // Se o usuário ativou o switch e clicou em OK dentro do Cookie Preferences
       setGoogleAnalyticsConsent(true);
       setCookiePreferencesClicked(false);
     }
@@ -58,7 +69,8 @@ export default function SimpleCookiePreference() {
 
       <Stack direction={{ base: 'column', md: 'row' }} justifyContent="space-between">
         <Text fontSize={{ base: 'sm' }} textAlign={'left'} maxW={'4xl'}>
-          
+          We use cookies and similar technologies to help personalise content, tailor and
+          measure ads, and provide a better experience.
         </Text>
         <Stack direction={{ base: 'column', md: 'row' }}>
           {!cookiePreferencesClicked && (
@@ -72,7 +84,7 @@ export default function SimpleCookiePreference() {
         </Stack>
       </Stack>
 
-      {cookiePreferencesClicked && ( // Exibe o switch do Google Analytics apenas se o usuário clicou em "Cookie Preferences"
+      {cookiePreferencesClicked && (
         <Stack direction="row" alignItems="center">
           <Text fontSize="sm">Google Analytics</Text>
           <Switch
