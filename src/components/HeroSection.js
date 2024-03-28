@@ -59,14 +59,15 @@ function HeroSection() {
 
   return (
     <Box
-      minH="calc(100vh - 12rem)"
-      bg="#af3838"
+      minH="calc(100vh - 10rem)"
+      bg="#bc2613"
       display="flex"
       alignItems="center"
       justifyContent="center"
     >
       {/* Container for content */}
       <Flex
+        justifyContent="center"
         textAlign="center"
         direction="column"
         position="relative"
@@ -107,11 +108,19 @@ function HeroSection() {
           </Flex>
         </animated.div>
         {/* "Explore Now" button styled with Chakra UI */}
-        <animated.div style={exploreButtonAnimation}>
-          <ChakraButton size="lg" mb={4} {...buttonStyle} fontSize="lg">
+        <ChakraFlex justifyContent="center" width="100%">
+          {" "}
+          {/* Horizontally center the button */}
+          <ChakraButton
+            size="lg"
+            mb={4}
+            {...buttonStyle}
+            fontSize="lg"
+            width="11rem"
+          >
             Book Now
           </ChakraButton>
-        </animated.div>
+        </ChakraFlex>
         {/* Logo */}
         <animated.div style={logoAnimation}>
           <Box mb={4}>
@@ -119,13 +128,15 @@ function HeroSection() {
           </Box>
         </animated.div>
         {/* Three buttons in a row styled with Chakra UI */}
-        <animated.div style={buttonsAnimation}>
-          <ChakraFlex justifyContent="space-between" mb={4}>
-            <ChakraButton {...buttonStyle}>Button 1</ChakraButton>
-            <ChakraButton {...buttonStyle}>Button 2</ChakraButton>
-            <ChakraButton {...buttonStyle}>Button 3</ChakraButton>
-          </ChakraFlex>
-        </animated.div>
+        <ChakraFlex justifyContent="center" mb={4}>
+          <ChakraButton mr={2} {...buttonStyle}>
+            Tours
+          </ChakraButton>
+          <ChakraButton mr={2} {...buttonStyle}>
+            About us
+          </ChakraButton>
+          <ChakraButton {...buttonStyle}>FAQ</ChakraButton>
+        </ChakraFlex>
       </Flex>
     </Box>
   );
