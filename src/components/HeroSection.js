@@ -37,8 +37,8 @@ function HeroSection() {
 
   return (
     <Box
-      minH="calc(100vh - 12rem)"
-      bg="#af3838"
+      minH="calc(100vh - 10rem)"
+      bg="#bc2613"
       display="flex"
       alignItems="center"
       justifyContent="center"
