@@ -4,7 +4,10 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 function Footer() {
   return (
-    <Box bg={useColorModeValue('gray.100', 'gray.800')} color={useColorModeValue('gray.600', 'gray.200')} h={"6rem"}>
+    <Box 
+      // bg={useColorModeValue('gray.100', 'gray.800')} color={useColorModeValue('gray.600', 'gray.200')}
+      bg="#333333" color="#ffffff" 
+      h={"6rem"}>
       <VStack spacing={1} align="stretch" p={6}>
         <Text fontSize="lg" textAlign="center">
           Hostel Hasta la Vista, baby!

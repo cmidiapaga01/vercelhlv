@@ -61,7 +61,7 @@ function Navbar() {
           </Menu>
 
           {/* Links para telas maiores */}
-          <Flex alignItems="center" display={{ base: "none", md: "flex" }}>
+          <Flex alignItems="center" color="#ffffff" display={{ base: "none", md: "flex" }}>
             <Link href="/" marginRight={4}>
               Home
             </Link>

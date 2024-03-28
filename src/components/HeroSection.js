@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Flex, Heading, Button, Image, IconButton } from "@chakra-ui/react";
+import { Box, Flex, Heading, Button, Image, IconButton, Link } from "@chakra-ui/react";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 import logo from "../assets/images/logo.png";
 import { useSpring, animated } from "react-spring";
@@ -12,6 +12,7 @@ function HeroSection() {
   const buttonStyle = {
     colorScheme: "whiteAlpha",
     px: 4,
+    width: "6rem",
     fontSize: "sm",
     rounded: "full",
     bg: "#d2af15", // HEX color code for background color
@@ -129,13 +130,15 @@ function HeroSection() {
         </animated.div>
         {/* Three buttons in a row styled with Chakra UI */}
         <ChakraFlex justifyContent="center" mb={4}>
-          <ChakraButton mr={2} {...buttonStyle}>
+          <ChakraButton as={Link} href="/tourspage" mr={2} {...buttonStyle}>
             Tours
           </ChakraButton>
-          <ChakraButton mr={2} {...buttonStyle}>
+          <ChakraButton as={Link} href="/aboutus" mr={2} {...buttonStyle}>
             About us
           </ChakraButton>
-          <ChakraButton {...buttonStyle}>FAQ</ChakraButton>
+          <ChakraButton as={Link} href="/faq" {...buttonStyle}>
+            FAQ
+          </ChakraButton>
         </ChakraFlex>
       </Flex>
     </Box>
